@@ -1,0 +1,92 @@
+LINEAR REGRESSION MODEL
+
+Data:
+Bike Sharing Day
+
+Result:
+- Model's accuracy was not increased by taking off other redundant features beyond those that sum cont and the date.
+Transforming the y data also didnt increased the model's accuracy'.
+0.79 and 0.82 were the trainning and test best performances, respectvelly. Mean absolute in 604 was also the best.
+
+Process:
+- Load database (.csv format)
+- Verify features' correlation and exclude the useless and redundant ones
+- Split base into two different bases: X and Y
+- Used sklearn to split the X and Y bases into test adn train datasets with test size 25% and random 42
+    - Database is 700 lines long, so 25% was a enough split rate
+- Load the linear model and trained it with 1 - 25% data
+- Printed train and test's score. There was no over/underfititng since the scores were very close
+- Printed the mean absolute error which was small enough since considering the accuracy rate and the lienar model
+
+Obs:
+- The model was tested with different test split rate and random state parameters, but accuracy wasnt improving engouh
+
+To do:
+- Formulate another model with a time series perspective
+- Split the base using cross validation instead of sklearn's split method
+- Do the Friedmann and Nemenyi's test to check for statistical relevance in the results
+
+======================================================================================================================
+
+POLYNOMIAL REGRESSION MODEL
+
+Result:
+- The best results for training and testing accuracies were 90% and 100%, respectvelly, with a MAE of 221.
+The data suffered some transformations and some columns had to be deleted, since they were redundant.
+
+Process:
+- Load database (.data format)
+- Added the columns names
+- Created an index
+- Got some data types info from the data then checked for null values
+- There were some missing values,not as null, but as question marks ('?')
+- Created a list of columns that had the missing values and were string (object) values
+- Iterate on each column and droped the missing lines
+- Replaced all the missing values in the integer columns with a numpy NaN values
+- Used sklearn's SimpleImputer to repace the NaN values with the column's mean value 
+- Turned the objective column from object to string and then integer value
+- Created a list of all the datatypes == object from the data base, in boolean format
+- Used the above boolean list to created a list of all columns were the the dtype == object was true
+- Iterate on each column in the list to fit_transform them using Label Encoder from sklearn
+- Since all data is in numeric values, we splitted the base into trainning and test datasets
+- Used sklearn's standard scaler to transform and scale all of the independent values
+- Finally, iterate on each parameter of split size and polynomial degree to get the best combination for the model
+- Used the MAE metric to evaluate the model
+
+
+Obs:
+
+To do:
+- Try to do the OneHotEncoder technique and test the results
+- Try to do the K-fold technique since the base data is very small
+
+======================================================================================================================
+
+DECISION TREE REGRESSION
+
+Result:
+- The data was very clean so no much modifications were need beyond sklearn's Standard Scaler.
+The round accuracy is 100% and the mean error is 
+
+Process:
+
+Obs:
+
+To do:
+
+
+======================================================================================================================
+
+RANDOM FOREST REGRESSION
+
+Result:
+
+Process:
+
+Obs:
+
+To do:
+
+
+
+
